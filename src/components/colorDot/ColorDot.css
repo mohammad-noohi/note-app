@@ -1,0 +1,8 @@
+.color {
+  width: 1.8rem;
+  height: 1.8rem;
+  background-color: gray;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+}

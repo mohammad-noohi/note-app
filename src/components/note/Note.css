@@ -1,0 +1,81 @@
+.note {
+  background-color: #fff;
+  border-radius: 0.8rem;
+  padding: 1.4rem;
+  position: relative;
+  overflow-x: hidden;
+  transition: all 300ms ease-in;
+}
+
+.note__restore {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(20, 220, 100);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  transition: all 300ms ease-in;
+  cursor: pointer;
+  font-size: 2.4rem;
+}
+
+/* completed note style */
+.note.note--done {
+  opacity: 0.4;
+}
+
+.note.note--done:hover {
+  opacity: 1;
+}
+
+.note--done .note__text {
+  text-decoration: line-through;
+  text-decoration-color: crimson;
+}
+
+.note.note--done:hover .note__restore {
+  transform: translateY(0);
+}
+
+.note:not(.note--done):hover .note__btns {
+  transform: translateX(0);
+}
+
+.note__text {
+  font-size: 1.8rem;
+  user-select: none;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.note__btns {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateX(100%);
+  transition: all 300ms ease-in-out;
+}
+
+.note__btn {
+  padding: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.note__btn-done {
+  background-color: cornflowerblue;
+}
+
+.note__btn-remove {
+  background-color: crimson;
+}

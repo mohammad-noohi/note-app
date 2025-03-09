@@ -1,0 +1,66 @@
+.app {
+  max-width: 100rem;
+  margin: 0 auto;
+  /* border-left: 1px solid red;
+  border-right: 1px solid red; */
+  padding: 4rem 0;
+}
+
+.app__title {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.input-group {
+  margin-top: 3rem;
+}
+
+.app__input {
+  width: 100%;
+  font-size: 1.8rem;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  padding: 1.6rem;
+  border-radius: 0.8rem;
+}
+
+.colors {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+.app__btns {
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.app__btn {
+  border: none;
+  outline: none;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.app__btn-add {
+  background-color: cornflowerblue;
+}
+
+.app__btn-clear {
+  background-color: crimson;
+}
+
+.notes {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 2rem;
+}
