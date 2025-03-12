@@ -5,9 +5,41 @@ import React from "react";
 import { IoTrashOutline } from "react-icons/io5"; // trash icon
 import { IoCheckmarkSharp } from "react-icons/io5"; // check icon
 import { IoRefresh } from "react-icons/io5"; // refresh icon
-import { TiThList } from "react-icons/ti";
 
-class Note extends React.Component {
+class Note extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      id: null,
+      text: "",
+      complete: null,
+      bg: "",
+    };
+
+    console.log("Note --> constructor run");
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log("Note --> getDerivedStateFromProps", props, state);
+
+    return {
+      id: props.id,
+      text: props.text,
+      complete: props.complete,
+      bg: props.bg,
+    };
+  }
+
+  componentDidMount() {
+    console.log("note component mount");
+  }
+
+  componentDidUpdate() {
+    console.log("note component update");
+  }
+
+  // Events
   checkNote(noteId) {
     this.props.onCheck(noteId);
   }
@@ -21,20 +53,18 @@ class Note extends React.Component {
   }
 
   render() {
-    const { id, text, complete, bg } = this.props;
-
     return (
-      <div className={`note ${complete ? "note--done" : ""}`} style={{ backgroundColor: bg }}>
-        <span className="note__text">{text}</span>
+      <div className={`note ${this.state.complete ? "note--done" : ""}`} style={{ backgroundColor: this.state.bg }}>
+        <span className="note__text">{this.state.text}</span>
         <div className="note__btns">
-          <button className="note__btn note__btn-done" onClick={this.checkNote.bind(this, id)}>
+          <button className="note__btn note__btn-done" onClick={this.checkNote.bind(this, this.state.id)}>
             <IoCheckmarkSharp />
           </button>
-          <button className="note__btn note__btn-remove" onClick={this.removeNote.bind(this, id)}>
+          <button className="note__btn note__btn-remove" onClick={this.removeNote.bind(this, this.state.id)}>
             <IoTrashOutline />
           </button>
         </div>
-        <div className="note__restore" onClick={this.uncheck.bind(this, id)}>
+        <div className="note__restore" onClick={this.uncheck.bind(this, this.state.id)}>
           <IoRefresh />
         </div>
       </div>

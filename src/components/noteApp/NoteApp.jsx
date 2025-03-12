@@ -5,7 +5,7 @@ import Note from "../note/Note";
 import { IoAddSharp } from "react-icons/io5"; // plus icon
 import { GrClearOption } from "react-icons/gr"; // clear icon
 
-class NoteApp extends React.Component {
+class NoteApp extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -24,13 +24,22 @@ class NoteApp extends React.Component {
         { id: 11, bg: "#FF89FD" },
       ],
 
-      notes: [],
+      notes: [
+        // {id : 1 , text : '....', bg : 'red' , complete : false}
+      ],
 
       noteText: "",
       inputColor: "#fff",
     };
+
+    console.log("noteApp --> constructor run");
   }
 
+  componentDidMount() {
+    console.log("noteapp comp mount");
+  }
+
+  // Events Methods
   setColorNote(color) {
     this.setState({
       inputColor: color,
